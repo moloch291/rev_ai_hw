@@ -22,8 +22,8 @@ class Display:
         for line in result:
             output += f"""{str(line_number)}: {
                 str(line[search_key]) if search_key is not None else line
-            }: {
-               str(line[second_key]) if second_key is not None else ""
+            } {
+               ": " + str(line[second_key]) if second_key is not None else ""
             }\n"""
             line_number += 1
         print(output)
