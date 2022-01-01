@@ -22,7 +22,7 @@ II:
 5: within an hour 
 6: N/A
 
-2 and 6 seems to mean the same (?)
+2 and 6 seems to mean the same
 
 III:
 
