@@ -5,6 +5,7 @@ sys.path.append("..")
 from variable_storage import magic_numbers as mgc_n
 
 
+# Since in the description no one said it is a web app I didn't pay attention to defend against SQL injection!
 @connection_handler
 def get_neighbourhood_groups(cursor):
     cursor.execute(

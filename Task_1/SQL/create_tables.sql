@@ -22,7 +22,7 @@ CREATE TABLE listing (
     calculated_host_listings_count int,
     availability_365 int,
     number_of_reviews_ltm int,
-    licence varchar
+    license varchar
 );
 
 CREATE TABLE neighbourhood (

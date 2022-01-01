@@ -39,7 +39,7 @@ COPY listing(
         price,
         minimum_nights,
         number_of_reviews, last_review, reviews_per_month,
-        calculated_host_listings_count, availability_365, number_of_reviews_ltm, licence
+        calculated_host_listings_count, availability_365, number_of_reviews_ltm, license
     )
 FROM 'C:\Users\moloch\Code\RevenueAI_Homework\Task_1\CSVs\listings.csv'
 DELIMITER ','
