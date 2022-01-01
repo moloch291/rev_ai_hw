@@ -21,19 +21,21 @@ class Analyzer:
         lengths = [len(self.__original_frame), len(self.__test_frame)]
         # In case the length are the same but different:
         if lengths[0] == lengths[1]:
-            # ToDo: implement me!
-            pass
+            return "The headers have the same length, but with different values..."
         # In case a frame has longer header:
-        output = self.get_output_for_size_diff(lengths)
+        output = self.__get_output_for_size_diff(lengths)
         return output
 
-    def get_output_for_size_diff(self, lengths):
+########################################################################################################################
+    # Private methods:
+########################################################################################################################
+
+    def __get_output_for_size_diff(self, lengths):
         longer_header = "verified" if max(lengths) == len(self.__original_frame) else "test"
         shorter_header = "test" if longer_header == "verified" else "verified"
         difference = lengths[0] - lengths[1] if longer_header == "verified" else lengths[1] - lengths[0]
         extra_columns = str(set(self.__original_frame.columns).difference(self.__test_frame.columns)) \
             if longer_header == "verified" \
             else str(set(self.__test_frame.columns).difference(self.__original_frame.columns))
-        output = f"The {longer_header} frame has {difference} extra column(s):" \
-                 f"\n* {extra_columns} is/are not represented in the {shorter_header} data!"
-        return output
+        return f"The {longer_header} frame has {difference} extra column(s):" \
+               f"\n* {extra_columns} is/are not represented in the {shorter_header} data!"
