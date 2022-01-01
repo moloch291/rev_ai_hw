@@ -25,21 +25,25 @@ def reload():
 
 def run_sub_functions(user_choice):
     price_getter = PriceGetter()
-
+    # Answer of question 1:
     if user_choice == 1:
         prices = price_getter.get_avg_prices()
         Display.present_result(prices, "neighbourhood_group", "avg_price")
+    # Question 2:
     elif user_choice == 2:
         resp_time_getter = ResponseTimeGetter()
         unique_values = resp_time_getter.get_unique_values()
         Display.present_result(unique_values, "host_response_time")
+    # Question 3:
     elif user_choice == 3:
         avg_price_of_most_reviewed = price_getter.get_avg_for_most_reviewed()
         Display.present_result(avg_price_of_most_reviewed)
+    # Solution for question 4:
     elif user_choice == 4:
         counter = CoffeeMakerGetter()
         number_of_props = counter.get_count()
         Display.present_result(number_of_props, "count")
+    # Exit:
     elif user_choice == 5:
         exit_program()
     else:
