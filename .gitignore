@@ -1,0 +1,5 @@
+.idea/
+Task_1/.idea/
+Task_1/app/database_handler/__pycache__/
+Task_1/app/interact/__pycache__/
+Task_1/app/variable_storage/__pycache__/
