@@ -22,5 +22,5 @@ class Input:
             return str(input(message))
         except ValueError:
             Display.clean_console()
-            print("Please provide text input!")
+            print(str_f.TYPE_ERROR_STR_MENU)
             Input.ask_for_string(message)

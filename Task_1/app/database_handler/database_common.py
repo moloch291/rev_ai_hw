@@ -1,6 +1,9 @@
 import os
 import psycopg2
 import psycopg2.extras
+import sys
+sys.path.append("..")
+from variable_storage import string_factory as str_f
 
 
 def get_connection_string():
@@ -22,7 +25,7 @@ def get_connection_string():
             database_name=database_name
         )
     else:
-        raise KeyError('Some necessary environment variable(s) are not defined!')
+        raise KeyError(str_f.DB_KEY_ERROR)
 
 
 def open_database():
@@ -31,7 +34,7 @@ def open_database():
         connection = psycopg2.connect(connection_string)
         connection.autocommit = True
     except psycopg2.DatabaseError as exception:
-        print('Database connection problem')
+        print(str_f.DB_ERROR)
         raise exception
     return connection
 

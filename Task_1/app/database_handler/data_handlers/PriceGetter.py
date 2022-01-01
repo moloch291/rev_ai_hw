@@ -2,6 +2,8 @@ import sys
 # import database queries:
 sys.path.append("..")
 from .. import query_storage as queries
+sys.path.append("../../../..")
+from variable_storage import magic_numbers as mgc_n
 
 
 class PriceGetter:
@@ -15,7 +17,7 @@ class PriceGetter:
 
     # I return the value string in a list since the Display object expects iterable:
     def get_avg_for_most_reviewed(self):
-        return ["$" + str(self.__avg_for_most_reviewed[0]["avg_price"])]
+        return ["$" + str(self.__avg_for_most_reviewed[mgc_n.INITIAL_STATE]["avg_price"])]
 
 ########################################################################################################################
     # Private methods:
@@ -29,10 +31,10 @@ class PriceGetter:
         neighbourhood_groups = queries.get_neighbourhood_groups()
         results = []
         for neighbourhood in neighbourhood_groups:
-            neighbourhood_avg = str(queries.get_avg_price_of_group(neighbourhood["neighbourhood_group"])[0]['average'])
+            neighbourhood_avg = str(queries.get_avg_price_of_group(neighbourhood["neighbourhood_group"])
+                                    [mgc_n.INITIAL_STATE]['average'])
             results.append(
                 {"neighbourhood_group": neighbourhood["neighbourhood_group"],
                  "avg_price": "$" + neighbourhood_avg}
             )
         return results
-

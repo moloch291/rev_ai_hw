@@ -1,6 +1,7 @@
 import sys
 import time
 from variable_storage import string_factory as str_f
+from variable_storage import magic_numbers as mgc_n
 from interact.Input import Input
 from interact.Display import Display
 from database_handler.data_handlers.PriceGetter import PriceGetter
@@ -10,8 +11,8 @@ from database_handler.data_handlers.CoffeeMakerGetter import CoffeeMakerGetter
 
 def exit_program():
     print(str_f.GOOD_BYE_MESSAGE)
-    time.sleep(2)
-    sys.exit(0)
+    time.sleep(mgc_n.SLEEPING_TIME_SEC)
+    sys.exit(mgc_n.INITIAL_STATE)
 
 
 def reload():

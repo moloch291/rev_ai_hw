@@ -1,6 +1,8 @@
 # Error messages:
 TYPE_ERROR_INT_MENU = "Invalid choice!\nPlease choose from the numbers below!"
-
+DB_KEY_ERROR = 'Some necessary environment variable(s) are not defined!'
+DB_ERROR = 'Database connection problem...'
+TYPE_ERROR_STR_MENU = "Please provide text input!"
 # Menu strings:
 MAIN_MENU_HEADER = "\nWelcome!\nPlease select from the following options:"
 MAIN_MENU_OPTIONS = """\n1: See average price per neighbourhood groups!
