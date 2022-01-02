@@ -44,4 +44,4 @@ class Main:
 
         Display.display_test_header("Header test:")
         print(result)
-        return result == "* Passed! * "
+        return result == "* Passed! *"
