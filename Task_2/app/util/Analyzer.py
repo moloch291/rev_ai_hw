@@ -8,8 +8,8 @@ class Analyzer:
         self.__test_frame = pandas.read_csv("data/test.csv")
 
     def column_name_check(self):
-        original_headers = [column for column in self.__original_frame.columns]
-        test_headers = [column for column in self.__test_frame.columns]
+        original_headers = self.__original_frame.columns
+        test_headers = self.__test_frame.columns
         failed = f"* Failed! *\nVerified headers: {original_headers}\n\ndon't match: {test_headers}..."
         # If their length doesn't match, return False:
         if len(original_headers) != len(test_headers):

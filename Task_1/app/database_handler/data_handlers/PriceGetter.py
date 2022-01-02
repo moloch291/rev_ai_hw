@@ -28,13 +28,4 @@ class PriceGetter:
         return queries.get_avg_of_most_reviewed(id_of_max_review["id"])
 
     def __get_avg_per_neighbourhood(self):
-        neighbourhood_groups = queries.get_neighbourhood_groups()
-        results = []
-        for neighbourhood in neighbourhood_groups:
-            neighbourhood_avg = str(queries.get_avg_price_of_group(neighbourhood["neighbourhood_group"])
-                                    [mgc_n.INITIAL_STATE]['average'])
-            results.append(
-                {"neighbourhood_group": neighbourhood["neighbourhood_group"],
-                 "avg_price": "$" + neighbourhood_avg}
-            )
-        return results
+        return queries.get_avg_per_neighbourhood_groups()

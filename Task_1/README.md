@@ -1,6 +1,6 @@
-# Please run main.py to see answers in the dedicated app or see them below!
+# Please run 'app/main.py' to see answers in the dedicated app or see them below!
 
-I:
+# I:
 
 * Ciutat Vella : $94.75
 * Sants-Montjuïc : $87.74
@@ -13,7 +13,9 @@ I:
 * Sant Andreu : $65.89
 * Les Corts : $318.98
 
-II:
+Got all groups from table made from neighbourhoods.csv and got the average price by iterating through them.
+
+# II:
 
 * within a day 
 * None 
@@ -24,12 +26,18 @@ II:
 
 (2 and 6 seems to mean the same)
 
-III:
+Via query with 'DISTINCT'.
+
+# III:
 
 $119.79
 
-IV:
+Got id of most reviewed first and counting average price from table made of calendar.csv.
+
+# IV:
 
 223
 
-# The SQL queries stored in 'Task_1/app/database_handler_query_storage.py'.
+Running a query with count() and text search in table made of listings.csv.gz...
+
+# The SQL queries are stored in 'Task_1/app/database_handler_query_storage.py'.

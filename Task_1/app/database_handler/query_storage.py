@@ -7,20 +7,13 @@ from variable_storage import magic_numbers as mgc_n
 
 # Since in the description no one said it is a web app I didn't pay attention to defend against SQL injection!
 @connection_handler
-def get_neighbourhood_groups(cursor):
-    cursor.execute(
-        "SELECT neighbourhood_group FROM neighbourhood GROUP BY neighbourhood_group;"
-    )
-    return cursor.fetchall()
-
-
-@connection_handler
-def get_avg_price_of_group(cursor, chosen_group):
-    cursor.execute(
-        f"""SELECT trunc(avg(price)::numeric, {mgc_n.SQL_PRICE_POSITION}) AS average
-            FROM listing
-            WHERE neighbourhood_group = '{chosen_group}';"""
-    )
+def get_avg_per_neighbourhood_groups(cursor):
+    cursor.execute("""SELECT n.neighbourhood_group,
+                             trunc(avg(l.price)::numeric, 2) as avg_price
+                      FROM neighbourhood n
+                      JOIN listing l on n.neighbourhood_group = l.neighbourhood_group
+                      GROUP BY n.neighbourhood_group
+                      ORDER BY avg_price DESC;""")
     return cursor.fetchall()
 
 
