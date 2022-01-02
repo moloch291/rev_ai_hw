@@ -28,8 +28,27 @@ class Analyzer:
         return output + "\n"
 
     def verify_columns(self):
-        # ToDo: implement me!
-        pass
+        first_row_in_verified = self.__original_frame.iloc[0]
+        first_row_in_test = self.__test_frame.iloc[0]
+
+        output = ""
+        for column in first_row_in_verified.keys():
+            column_value_type_in_verified = str(type(first_row_in_verified[column]))
+            output += "\n" + column + ": " + str(first_row_in_verified[column]) + " Type: " + \
+                      column_value_type_in_verified
+
+            try:
+                output_for_test = "\nRepresented in test!" if first_row_in_test[column] is not None \
+                    else "\bNot in test!"
+                type_in_test = str(type(first_row_in_test[column]))
+            except KeyError:
+                output_for_test = "\nNot in test!"
+                type_in_test = "\nNone"
+
+            type_output_for_test = "Same data type!" if column_value_type_in_verified == type_in_test \
+                else "Data type is different!"
+            output += output_for_test + "\n" + type_output_for_test + "\n"
+        return output
 
 ########################################################################################################################
     # Private methods:

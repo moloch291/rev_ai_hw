@@ -8,7 +8,7 @@ class Display:
         print("###############################################")
 
     @staticmethod
-    def clean_console():
+    def clean_screen():
         os.system('cls' if os.name == 'nt' else 'clear')
 
     @staticmethod

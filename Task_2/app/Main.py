@@ -1,5 +1,3 @@
-import pandas
-
 from util.Analyzer import Analyzer
 from util.Display import Display
 
@@ -19,16 +17,17 @@ class Main:
         # Testing data types:
         Display.print_decor()
         if self.__reassured("\nWould like to verify each column of the database?\n"):
-            self.__verify_by_column()
+            data_type_check_result = self.__verify_by_column()
+            print(data_type_check_result)
 
 ########################################################################################################################
     # Private methods:
 ########################################################################################################################
 
     def __verify_by_column(self):
-        Display.clean_console()
+        Display.clean_screen()
         Display.display_test_header("Run column tests:")
-        self.__analyzer.verify_columns()
+        return self.__analyzer.verify_columns()
 
     def __reassured(self, message):
         user_choice = input(message)
@@ -41,7 +40,6 @@ class Main:
 
     def __matching_headers(self):
         result = self.__analyzer.column_name_check()
-
         Display.display_test_header("Header test:")
         print(result)
         return result == "* Passed! *"
