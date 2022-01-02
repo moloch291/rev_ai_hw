@@ -11,11 +11,12 @@ class Main:
         Display.print_decor()
         print("Task 2:\nQuality assessment of new dataset.\nRunning tests:")
         # Testing headers:
-        if not self.__matching_headers() and self.__reassured("\nWant to check type of common columns? [Y/N]\n"):
+        if not self.__matching_headers() and self.__reassured("\nWant to check differences? [Y/N]\n"):
             common_columns = self.__analyzer.count_common_columns()
             print(common_columns)
         # Testing data types:
-        if self.__reassured("\nWould like to verify each column?\n"):
+        Display.print_decor()
+        if self.__reassured("\nWould like to verify each column of the database?\n"):
             self.__verify_by_column()
 
 ########################################################################################################################
