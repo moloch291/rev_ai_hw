@@ -17,15 +17,14 @@ class PriceGetter:
 
     # I return the value string in a list since the Display object expects iterable:
     def get_avg_for_most_reviewed(self):
-        return ["$" + str(self.__avg_for_most_reviewed[mgc_n.INITIAL_STATE]["avg_price"])]
+        return ["$" + str(self.__avg_for_most_reviewed["avg_price"])]
 
 ########################################################################################################################
     # Private methods:
 ########################################################################################################################
 
     def __get_avg_for_most_reviewed(self):
-        id_of_max_review = queries.find_most_reviewed()
-        return queries.get_avg_of_most_reviewed(id_of_max_review["id"])
+        return queries.get_avg_of_most_reviewed()
 
     def __get_avg_per_neighbourhood(self):
         return queries.get_avg_per_neighbourhood_groups()
