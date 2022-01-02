@@ -1,3 +1,5 @@
+import pandas
+
 from util.Analyzer import Analyzer
 from util.Display import Display
 
@@ -12,8 +14,8 @@ class Main:
         print("Task 2:\nQuality assessment of new dataset.\nRunning tests:")
         # Testing headers:
         if not self.__matching_headers() and self.__reassured("\nWant to check differences? [Y/N]\n"):
-            common_columns = self.__analyzer.count_common_columns()
-            print(common_columns)
+            non_common_columns = self.__analyzer.get_non_common_columns()
+            print(non_common_columns)
         # Testing data types:
         Display.print_decor()
         if self.__reassured("\nWould like to verify each column of the database?\n"):
@@ -24,8 +26,9 @@ class Main:
 ########################################################################################################################
 
     def __verify_by_column(self):
-        # ToDo: implement me!
-        return
+        Display.clean_console()
+        Display.display_test_header("Run column tests:")
+        self.__analyzer.verify_columns()
 
     def __reassured(self, message):
         user_choice = input(message)
@@ -37,9 +40,8 @@ class Main:
             return self.__reassured(message)
 
     def __matching_headers(self):
-        Display.print_decor()
         result = self.__analyzer.column_name_check()
 
-        print("Header test:")
+        Display.display_test_header("Header test:")
         print(result)
         return result == "* Passed! * "
