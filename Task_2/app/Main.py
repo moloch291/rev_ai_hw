@@ -16,9 +16,16 @@ class Main:
             print(non_common_columns)
         # Testing data types:
         Display.print_decor()
-        if self.__reassured("\nWould like to verify each column of the database?\n"):
-            data_type_check_result = self.__verify_by_column()
-            print(data_type_check_result)
+        if self.__reassured("\nWould like to verify each column of the database? [Y/N]\n"):
+            d_type_check_result = self.__verify_by_column()
+            print(d_type_check_result)
+            print(
+                f"Out of {str(d_type_check_result.count('Column'))} column(s)"
+                f" {d_type_check_result.count('Same data type!')} matching!"
+                f" {d_type_check_result.count('Data type is different!') - d_type_check_result.count('Not in test!')}"
+                " column(s) represented, but with different data type."
+            )
+
 
 ########################################################################################################################
     # Private methods:

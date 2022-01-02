@@ -8,8 +8,8 @@ class Analyzer:
         self.__test_frame = pandas.read_csv("data/test.csv")
 
     def column_name_check(self):
-        original_headers = self.__original_frame.columns
-        test_headers = self.__test_frame.columns
+        original_headers = [header for header in self.__original_frame.columns]
+        test_headers = [header for header in self.__test_frame.columns]
         failed = f"* Failed! *\nVerified headers: {original_headers}\n\ndon't match: {test_headers}..."
         # If their length doesn't match, return False:
         if len(original_headers) != len(test_headers):
@@ -32,14 +32,15 @@ class Analyzer:
         first_row_in_test = self.__test_frame.iloc[0]
 
         output = ""
+        column_number = 1
         for column in first_row_in_verified.keys():
             column_value_type_in_verified = str(type(first_row_in_verified[column]))
-            output += "\n" + column + ": " + str(first_row_in_verified[column]) + " Type: " + \
+            output += "\n" + "* Column " + str(column_number) + ": '" + column + "' *" + "\nType: " + \
                       column_value_type_in_verified
 
             try:
                 output_for_test = "\nRepresented in test!" if first_row_in_test[column] is not None \
-                    else "\bNot in test!"
+                    else "\nNot in test!"
                 type_in_test = str(type(first_row_in_test[column]))
             except KeyError:
                 output_for_test = "\nNot in test!"
@@ -48,6 +49,7 @@ class Analyzer:
             type_output_for_test = "Same data type!" if column_value_type_in_verified == type_in_test \
                 else "Data type is different!"
             output += output_for_test + "\n" + type_output_for_test + "\n"
+            column_number += 1
         return output
 
 ########################################################################################################################
