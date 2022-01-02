@@ -7,12 +7,14 @@ from variable_storage import magic_numbers as mgc_n
 
 @connection_handler
 def get_avg_per_neighbourhood_groups(cursor):
-    cursor.execute(f"""SELECT n.neighbourhood_group,
-                              trunc(avg(l.price)::numeric, {mgc_n.SQL_PRICE_POSITION}) AS avg_price
-                       FROM neighbourhood n
-                       JOIN listing l ON n.neighbourhood_group = l.neighbourhood_group
-                       GROUP BY n.neighbourhood_group
-                       ORDER BY avg_price DESC;""")
+    cursor.execute(
+        f"""SELECT n.neighbourhood_group,
+                   trunc(avg(l.price)::numeric, {mgc_n.SQL_PRICE_POSITION}) AS avg_price
+            FROM neighbourhood n
+            JOIN listing l ON n.neighbourhood_group = l.neighbourhood_group
+            GROUP BY n.neighbourhood_group
+            ORDER BY avg_price DESC;"""
+    )
     return cursor.fetchall()
 
 

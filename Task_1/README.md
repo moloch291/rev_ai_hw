@@ -13,7 +13,7 @@
 * Sant Andreu : $65.89
 * Les Corts : $318.98
 
-Got all groups from table made from neighbourhoods.csv and got the average price by iterating through them.
+Got all groups from table made from neighbourhoods.csv and joined listing table on foreign key.
 
 # II:
 
@@ -32,7 +32,7 @@ Via query with 'DISTINCT'.
 
 $119.79
 
-Got id of most reviewed first and counting average price from table made of calendar.csv.
+Ordering by reviews first and counting average price from table made of calendar.csv joined by listing table.
 
 # IV:
 
