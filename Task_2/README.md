@@ -1,6 +1,6 @@
-# In order to run the tests, please run data_check.py!
+# To run the tests, please run data_check.py!
 
-* To function, we need to have the 'Task_2/data' directory with the csv files inside.
+* in order function properly, we need to have the 'Task_2/data' directory with the csv files (train.csv & test.csv) inside.
 * In the Main object's main method I run:
 
     1: checking of the two CSV headers if they match
